@@ -16,13 +16,11 @@ function meraki_enqueue_assets() {
 		return;
 	}
 
-	// Google Fonts: Inter.
-	wp_enqueue_style(
-		'meraki-google-fonts',
-		'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap',
-		array(),
-		null
-	);
+	// Google Fonts — fuente configurable desde Apariencia > Meraki.
+	$font     = get_option( 'meraki_google_font', 'Inter' );
+	$font_url = 'https://fonts.googleapis.com/css2?family=' . rawurlencode( $font ) . ':wght@400;500;600;700;800&display=swap';
+
+	wp_enqueue_style( 'meraki-google-fonts', $font_url, array(), null );
 
 	// main.css — SCSS compilado, carga primero.
 	$version_main = defined( 'WP_DEBUG' ) && WP_DEBUG

@@ -93,6 +93,7 @@ function meraki_load_includes() {
         '/inc/enqueue.php',
         '/inc/elementor-support.php',
         '/inc/elementor-globals.php',
+        '/inc/settings.php',
     ];
 
     foreach ( $includes as $file ) {
