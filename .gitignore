@@ -1,0 +1,22 @@
+# Claude Code
+.claude/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Minificados generados (se regeneran)
+*.min.css
+*.min.js
+
+# Assets locales que no van al repo
+assets/fonts/*
+!assets/fonts/.gitkeep
+
+# Logs
+*.log
