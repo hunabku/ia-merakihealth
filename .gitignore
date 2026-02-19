@@ -22,5 +22,5 @@ assets/fonts/*
 *.log
 
 # Node — build system SCSS
-node_modules/
+build/node_modules/
 *.css.map
