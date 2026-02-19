@@ -1,0 +1,79 @@
+// =============================================================================
+// Elementor Overrides — compatibilidad con Elementor Free + Pro
+// =============================================================================
+
+// Canvas: página completamente en blanco
+body.elementor-template-canvas {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    #page {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+// Full width: sin max-width en el contenido
+body.elementor-template-full-width {
+    .meraki-content {
+        max-width: 100%;
+        padding: 0;
+    }
+}
+
+// Ocultar header/footer del tema cuando Elementor Canvas gestiona la página
+body.meraki-elementor-canvas {
+    .site-header,
+    .site-footer {
+        display: none !important;
+    }
+}
+
+// Cuando Theme Builder tiene header/footer, eliminar bordes/paddings residuales
+body.meraki-has-elementor-header {
+    .meraki-header {
+        display: none !important;
+    }
+}
+
+body.meraki-has-elementor-footer {
+    .meraki-footer {
+        display: none !important;
+    }
+}
+
+// Elementor built pages: quitar padding del contenedor
+body.meraki-built-with-elementor {
+    .meraki-content {
+        padding: 0;
+        max-width: 100%;
+    }
+}
+
+// Reset de márgenes y padding en páginas Elementor
+body.elementor-page,
+body.elementor-editor-active {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.elementor-page,
+.elementor-editor-active {
+    #page,
+    .site-content {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+
+// Asegurar que las secciones de Elementor lleguen al borde
+.elementor-section.elementor-section-boxed > .elementor-container {
+    max-width: 100%;
+}
+
+// Header/Footer Theme Builder sin márgenes
+.elementor-location-header,
+.elementor-location-footer {
+    margin: 0 !important;
+    padding: 0 !important;
+}

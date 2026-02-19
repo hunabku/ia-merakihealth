@@ -24,17 +24,28 @@ function meraki_enqueue_assets() {
 		null
 	);
 
-	// Versioning dinámico: filemtime en desarrollo, MERAKI_VERSION en producción.
-	$version = defined( 'WP_DEBUG' ) && WP_DEBUG
+	// main.css — SCSS compilado, carga primero.
+	$version_main = defined( 'WP_DEBUG' ) && WP_DEBUG
+		? filemtime( get_template_directory() . '/assets/css/main.css' )
+		: MERAKI_VERSION;
+
+	wp_enqueue_style(
+		'meraki-main',
+		get_template_directory_uri() . '/assets/css/main.css',
+		array( 'meraki-google-fonts' ),
+		$version_main
+	);
+
+	// style.css — ediciones rápidas, carga después (puede sobreescribir main.css).
+	$version_style = defined( 'WP_DEBUG' ) && WP_DEBUG
 		? filemtime( get_template_directory() . '/style.css' )
 		: MERAKI_VERSION;
 
-	// Estilo principal del tema.
 	wp_enqueue_style(
 		'meraki-style',
 		get_stylesheet_uri(),
-		array( 'meraki-google-fonts' ),
-		$version
+		array( 'meraki-main' ),
+		$version_style
 	);
 }
 add_action( 'wp_enqueue_scripts', 'meraki_enqueue_assets' );
@@ -59,18 +70,28 @@ add_filter( 'wp_resource_hints', 'meraki_preconnect_google_fonts', 10, 2 );
 
 /**
  * Encolar estilos en el EDITOR de Elementor.
- * Sin esto, el style.css no se carga en el builder.
  */
 function meraki_enqueue_elementor_editor_styles() {
-	$version = defined( 'WP_DEBUG' ) && WP_DEBUG
+	$version_main = defined( 'WP_DEBUG' ) && WP_DEBUG
+		? filemtime( get_template_directory() . '/assets/css/main.css' )
+		: MERAKI_VERSION;
+
+	wp_enqueue_style(
+		'meraki-main-editor',
+		get_template_directory_uri() . '/assets/css/main.css',
+		array(),
+		$version_main
+	);
+
+	$version_style = defined( 'WP_DEBUG' ) && WP_DEBUG
 		? filemtime( get_template_directory() . '/style.css' )
 		: MERAKI_VERSION;
 
 	wp_enqueue_style(
 		'meraki-style-editor',
 		get_stylesheet_uri(),
-		array(),
-		$version
+		array( 'meraki-main-editor' ),
+		$version_style
 	);
 }
 add_action( 'elementor/editor/after_enqueue_styles', 'meraki_enqueue_elementor_editor_styles' );
@@ -79,15 +100,26 @@ add_action( 'elementor/editor/after_enqueue_styles', 'meraki_enqueue_elementor_e
  * Encolar estilos en la PREVIEW de Elementor (vista previa).
  */
 function meraki_enqueue_elementor_preview_styles() {
-	$version = defined( 'WP_DEBUG' ) && WP_DEBUG
+	$version_main = defined( 'WP_DEBUG' ) && WP_DEBUG
+		? filemtime( get_template_directory() . '/assets/css/main.css' )
+		: MERAKI_VERSION;
+
+	wp_enqueue_style(
+		'meraki-main-preview',
+		get_template_directory_uri() . '/assets/css/main.css',
+		array(),
+		$version_main
+	);
+
+	$version_style = defined( 'WP_DEBUG' ) && WP_DEBUG
 		? filemtime( get_template_directory() . '/style.css' )
 		: MERAKI_VERSION;
 
 	wp_enqueue_style(
 		'meraki-style-preview',
 		get_stylesheet_uri(),
-		array(),
-		$version
+		array( 'meraki-main-preview' ),
+		$version_style
 	);
 }
 add_action( 'elementor/preview/enqueue_styles', 'meraki_enqueue_elementor_preview_styles' );

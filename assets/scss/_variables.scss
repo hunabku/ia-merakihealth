@@ -1,0 +1,21 @@
+// =============================================================================
+// Variables — CSS Custom Properties + SCSS variables de configuración
+// =============================================================================
+
+// SCSS variables (solo disponibles en tiempo de compilación)
+$max-width: 1200px;
+$font-stack: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+// CSS Custom Properties (disponibles en runtime, compatibles con Elementor)
+:root {
+    --color-primary:     #2D6BE4;
+    --color-secondary:   #1A1A2E;
+    --color-accent:      #FF6B35;
+    --color-text:        #333333;
+    --color-text-light:  #94a3b8;
+    --color-light:       #F8F9FA;
+    --color-bg:          #ffffff;
+    --color-bg-alt:      #f8fafc;
+    --font-heading:      #{$font-stack};
+    --font-body:         #{$font-stack};
+}

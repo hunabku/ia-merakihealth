@@ -1,0 +1,26 @@
+// =============================================================================
+// Header base del tema
+// =============================================================================
+
+.meraki-header {
+    background-color: var(--color-bg);
+    border-bottom: 1px solid #e2e8f0;
+    padding: 1rem;
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__logo {
+        a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-secondary);
+            text-decoration: none;
+        }
+    }
+}

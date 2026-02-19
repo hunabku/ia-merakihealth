@@ -1,0 +1,13 @@
+{
+  "name": "meraki-theme",
+  "version": "1.0.0",
+  "description": "Meraki WordPress Theme — SCSS build system",
+  "private": true,
+  "scripts": {
+    "dev": "sass --watch assets/scss/main.scss:assets/css/main.css --style=expanded --no-source-map",
+    "build": "sass assets/scss/main.scss assets/css/main.css --style=compressed --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.83.4"
+  }
+}

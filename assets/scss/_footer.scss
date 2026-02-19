@@ -1,0 +1,16 @@
+// =============================================================================
+// Footer base del tema
+// =============================================================================
+
+.meraki-footer {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+    margin-top: auto;
+
+    a {
+        color: var(--color-text-light);
+    }
+}

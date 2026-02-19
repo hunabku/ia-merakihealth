@@ -20,3 +20,7 @@ assets/fonts/*
 
 # Logs
 *.log
+
+# Node — build system SCSS
+node_modules/
+*.css.map

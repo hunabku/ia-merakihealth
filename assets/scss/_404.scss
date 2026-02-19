@@ -1,0 +1,36 @@
+// =============================================================================
+// Página 404
+// =============================================================================
+
+.meraki-404 {
+    text-align: center;
+    padding: 4rem 1rem;
+
+    h1 {
+        font-size: 5rem;
+        font-weight: 800;
+        color: var(--color-primary);
+        margin: 0 0 1rem;
+    }
+
+    p {
+        font-size: 1.25rem;
+        color: var(--color-text-light);
+    }
+
+    a {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 0.75rem 2rem;
+        background-color: var(--color-primary);
+        color: #fff;
+        border-radius: 0.375rem;
+        font-weight: 600;
+        text-decoration: none;
+
+        &:hover {
+            opacity: 0.9;
+            text-decoration: none;
+        }
+    }
+}

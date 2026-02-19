@@ -200,11 +200,15 @@ function meraki_elementor_widgets_init() {
 }
 add_action( 'widgets_init', 'meraki_elementor_widgets_init' );
 
-// Forzar carga del style.css en el editor de Elementor
+// Forzar carga de main.css + style.css en el editor y preview de Elementor
 add_action( 'elementor/editor/after_enqueue_styles', function() {
-    wp_enqueue_style( 'meraki-editor', get_stylesheet_uri(), [], filemtime( get_stylesheet_directory() . '/style.css' ) );
-});
+	$v = filemtime( get_template_directory() . '/assets/css/main.css' );
+	wp_enqueue_style( 'meraki-main-editor', get_template_directory_uri() . '/assets/css/main.css', [], $v );
+	wp_enqueue_style( 'meraki-editor', get_stylesheet_uri(), [ 'meraki-main-editor' ], filemtime( get_stylesheet_directory() . '/style.css' ) );
+} );
 
 add_action( 'elementor/preview/enqueue_styles', function() {
-    wp_enqueue_style( 'meraki-preview', get_stylesheet_uri(), [], filemtime( get_stylesheet_directory() . '/style.css' ) );
-});
+	$v = filemtime( get_template_directory() . '/assets/css/main.css' );
+	wp_enqueue_style( 'meraki-main-preview', get_template_directory_uri() . '/assets/css/main.css', [], $v );
+	wp_enqueue_style( 'meraki-preview', get_stylesheet_uri(), [ 'meraki-main-preview' ], filemtime( get_stylesheet_directory() . '/style.css' ) );
+} );
