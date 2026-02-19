@@ -11,8 +11,11 @@ Los archivos fuente están en `assets/scss/` y compilan a `assets/css/main.css`.
 ## Instalación (primera vez o al clonar el repo)
 
 ```bash
-cd build
-npm install
+# Desde raíz del tema
+npm --prefix build install
+
+# O entrando a build/
+cd build && npm install
 ```
 
 ## Desarrollo (watch mode)
@@ -20,15 +23,21 @@ npm install
 Compila automáticamente al guardar cualquier archivo `.scss`:
 
 ```bash
-cd build
-npm run dev
+# Desde raíz del tema
+npm --prefix build run dev
+
+# O entrando a build/
+cd build && npm run dev
 ```
 
 ## Producción (build minificado)
 
 ```bash
-cd build
-npm run build
+# Desde raíz del tema
+npm --prefix build run build
+
+# O entrando a build/
+cd build && npm run build
 ```
 
 ## Estructura SCSS
