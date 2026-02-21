@@ -85,8 +85,6 @@ add_action( 'wp_enqueue_scripts', function() {
 	$text      = get_option( 'meraki_color_text',      '#333333' );
 	$light     = get_option( 'meraki_color_light',     '#F8F9FA' );
 
-	$width = absint( get_option( 'meraki_container_width', 1200 ) );
-
 	$css = ":root {
 		--color-primary:    {$primary};
 		--color-secondary:  {$secondary};
@@ -98,8 +96,7 @@ add_action( 'wp_enqueue_scripts', function() {
 		--meraki-accent:    {$accent};
 		--meraki-text:      {$text};
 		--meraki-light:     {$light};
-	}
-	.meraki-content { max-width: {$width}px; }";
+	}";
 
 	wp_add_inline_style( 'meraki-main', $css );
 

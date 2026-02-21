@@ -172,22 +172,6 @@ function meraki_elementor_inline_overrides() {
 }
 add_action( 'wp_head', 'meraki_elementor_inline_overrides', 99 );
 
-/**
- * Sincronizar ancho del contenedor de Elementor con el del tema al activarlo.
- */
-function meraki_elementor_content_width() {
-	if ( ! defined( 'ELEMENTOR_VERSION' ) ) {
-		return;
-	}
-
-	update_option( 'elementor_container_width', absint( get_option( 'meraki_container_width', 1200 ) ) );
-}
-add_action( 'after_switch_theme', 'meraki_elementor_content_width' );
-
-// Sincronizar con Elementor cuando se guarda desde el panel de admin.
-add_action( 'update_option_meraki_container_width', function( $old, $new ) {
-	update_option( 'elementor_container_width', absint( $new ) );
-}, 10, 2 );
 
 /**
  * Registrar widget areas adicionales para Elementor.

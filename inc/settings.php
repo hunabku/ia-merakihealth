@@ -45,10 +45,7 @@ add_action( 'admin_init', function() {
 		'sanitize_callback' => 'sanitize_text_field',
 		'default'           => 'Inter',
 	] );
-	register_setting( 'meraki_settings', 'meraki_container_width', [
-		'sanitize_callback' => 'absint',
-		'default'           => 1200,
-	] );
+
 	register_setting( 'meraki_settings', 'meraki_custom_css', [
 		'sanitize_callback' => 'wp_strip_all_tags',
 	] );
@@ -110,17 +107,7 @@ function meraki_settings_page() {
 				</tr>
 			</table>
 
-			<h2><?php esc_html_e( 'Layout', 'meraki' ); ?></h2>
-			<table class="form-table" role="presentation">
-				<tr>
-					<th scope="row"><label for="meraki_container_width"><?php esc_html_e( 'Ancho del contenedor (px)', 'meraki' ); ?></label></th>
-					<td>
-						<input type="number" id="meraki_container_width" name="meraki_container_width" value="<?php echo absint( get_option( 'meraki_container_width', 1200 ) ); ?>" class="small-text" min="600" max="2560">
-						<p class="description"><?php esc_html_e( 'También actualiza el contenedor de Elementor automáticamente.', 'meraki' ); ?></p>
-					</td>
-				</tr>
-			</table>
-
+	
 			<h2><?php esc_html_e( 'CSS personalizado', 'meraki' ); ?></h2>
 			<table class="form-table" role="presentation">
 				<tr>
